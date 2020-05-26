@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "477867138916",
+    "firebase_url": "https://idrink-java.firebaseio.com",
+    "project_id": "idrink-java",
+    "storage_bucket": "idrink-java.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477867138916:android:79e5e28ffc56ade5082471",
+        "android_client_info": {
+          "package_name": "projeto.idrink.com.br"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477867138916-l93478gslbc6ikjj95jv6pjvmvoq617c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "projeto.idrink.com.br",
+            "certificate_hash": "d6fa44a8ff78d731182427523bc5032f601c6335"
+          }
+        },
+        {
+          "client_id": "477867138916-i0gtq8ea8fn234vqn6pktaksp8iknk72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMSdBTwOa_Wqo_C79F9-FtGdXMnsB3osI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477867138916-i0gtq8ea8fn234vqn6pktaksp8iknk72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

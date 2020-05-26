@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FAFAFA</item>
+        <item name="colorPrimaryDark">#D8C624</item>
+        <item name="colorAccent">#D8C624</item>
+    </style>
+    
+    <style name="btnPadrao" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#ff404e</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+</resources>
