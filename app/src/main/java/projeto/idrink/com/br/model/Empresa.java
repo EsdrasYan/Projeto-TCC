@@ -2,9 +2,11 @@ package projeto.idrink.com.br.model;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
+
 import projeto.idrink.com.br.helper.ConfigFirebase;
 
-public class Empresa {
+public class Empresa implements Serializable {
 
     private String idUsuario;
     private String imgUrl;

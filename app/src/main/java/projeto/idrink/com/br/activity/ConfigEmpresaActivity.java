@@ -85,7 +85,7 @@ public class ConfigEmpresaActivity extends AppCompatActivity {
                     editEmpresaNome.setText(empresa.getNomeEmpresa());
                     editCpfCnpj.setText(empresa.getCpfCnpj());
                     editTaxaEntrega.setText(empresa.getTaxaEntrega().toString());
-                    empresa.setTempoEstimado(empresa.getTempoEstimado());
+                    editTempoEstimado.setText(empresa.getTempoEstimado());
 
                     urlImg = empresa.getImgUrl();
                     if(urlImg != ""){

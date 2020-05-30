@@ -31,7 +31,7 @@ import projeto.idrink.com.br.model.Produto;
 
 public class NovoProdutoEmpresaActivity extends AppCompatActivity {
 
-    private EditText editNomeProduto, editDescricaoProduto, editValor, editCategoria;
+    private EditText editNomeProduto, editDescricaoProduto, editValor, editCategoria, editQtdEstoque;
     private ImageView imgProduto;
     private String idUsuarioLogado;
     private String urlImgProduto = "";
@@ -72,22 +72,28 @@ public class NovoProdutoEmpresaActivity extends AppCompatActivity {
         String descricao = editDescricaoProduto.getText().toString();
         String valor = editValor.getText().toString();
         String categoria = editCategoria.getText().toString();
+        String qtd = editQtdEstoque.getText().toString();
 
         if(!nomeProduto.isEmpty()){
             if(!descricao.isEmpty()){
                 if(!valor.isEmpty()){
-                    if(!categoria.isEmpty()){
-                        Produto produto = new Produto();
-                        produto.setIdUsuario(idUsuarioLogado);
-                        produto.setNomeProduto(nomeProduto);
-                        produto.setDescricao(descricao);
-                        produto.setCategoria(categoria);
-                        produto.setPreco(Double.parseDouble(valor));
-                        produto.salvar();
-                        finish();
-                        exibirMensagem("Produto salvo com sucesso!");
+                    if(!qtd.isEmpty()){
+                        if(!categoria.isEmpty()){
+                            Produto produto = new Produto();
+                            produto.setIdUsuario(idUsuarioLogado);
+                            produto.setNomeProduto(nomeProduto);
+                            produto.setDescricao(descricao);
+                            produto.setCategoria(categoria);
+                            produto.setQuantidade(qtd);
+                            produto.setPreco(Double.parseDouble(valor));
+                            produto.salvar();
+                            finish();
+                            exibirMensagem("Produto salvo com sucesso!");
+                        }else{
+                            exibirMensagem("Digite a categoria!");
+                        }
                     }else{
-                        exibirMensagem("Digite a categoria!");
+                        exibirMensagem("Digite a quantidade em estoque!");
                     }
                 }else{
                     exibirMensagem("Digite o valor do produto!");
@@ -157,5 +163,6 @@ public class NovoProdutoEmpresaActivity extends AppCompatActivity {
         editValor = findViewById(R.id.editPreco);
         editCategoria = findViewById(R.id.editCategoria);
         imgProduto = findViewById(R.id.imgProduto);
+        editQtdEstoque = findViewById(R.id.editQtdEstoque);
     }
 }

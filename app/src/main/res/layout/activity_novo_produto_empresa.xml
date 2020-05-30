@@ -65,6 +65,17 @@
             android:padding="16dp" />
 
         <EditText
+            android:id="@+id/editQtdEstoque"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2dp"
+            android:background="@drawable/bg_edit_text"
+            android:ems="10"
+            android:hint="Quantidade em Estoque"
+            android:inputType="number"
+            android:padding="16dp" />
+
+        <EditText
             android:id="@+id/editPreco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -36,6 +36,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MyViewHo
         Produto produto = produtos.get(i);
         holder.nome.setText(produto.getNomeProduto());
         holder.descricao.setText(produto.getDescricao());
+        holder.qtd.setText("Quantidade em Estoque: " + produto.getQuantidade());
         holder.valor.setText("R$ " + produto.getPreco());
     }
 
@@ -48,6 +49,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MyViewHo
 
         TextView nome;
         TextView descricao;
+        TextView qtd;
         TextView valor;
 
         public MyViewHolder(View itemView) {
@@ -55,6 +57,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MyViewHo
 
             nome = itemView.findViewById(R.id.textNomeProduto);
             descricao = itemView.findViewById(R.id.textDescricao);
+            qtd = itemView.findViewById(R.id.textQtdEstoque);
             valor = itemView.findViewById(R.id.textPreco);
         }
     }

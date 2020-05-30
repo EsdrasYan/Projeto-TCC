@@ -13,6 +13,7 @@ public class Produto {
     private Double preco;
     private String Categoria;
     private String produtoImg;
+    private String quantidade;
 
     public Produto() {
         DatabaseReference firebaseRef = ConfigFirebase.getFirebase();
@@ -89,5 +90,13 @@ public class Produto {
 
     public void setProdutoImg(String produtoImg) {
         this.produtoImg = produtoImg;
+    }
+
+    public String getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
     }
 }
