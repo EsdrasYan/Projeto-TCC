@@ -32,16 +32,33 @@ public class Pedido {
         setIdEmpresa(idEmpresaAux);
 
         DatabaseReference firebaseRef = ConfigFirebase.getFirebase();
-        DatabaseReference pedidoRef = firebaseRef.child("usuario_pedidos").child(idEmpresaAux).child(idUsuarioAux);
+        DatabaseReference pedidoRef = firebaseRef.child("usuarioPedidos").child(idEmpresaAux).child(idUsuarioAux);
         setIdPedido(pedidoRef.push().getKey());
     }
 
     public void salvar(){
 
         DatabaseReference firebaseRef = ConfigFirebase.getFirebase();
-        DatabaseReference pedidoRef = firebaseRef.child("usuario_pedidos").child(getIdEmpresa()).child(getIdUsuario());
+        DatabaseReference pedidoRef = firebaseRef.child("usuarioPedidos").child(getIdEmpresa()).child(getIdUsuario());
 
         pedidoRef.setValue(this);
+
+    }
+
+    public void confirmar(){
+
+        DatabaseReference firebaseRef = ConfigFirebase.getFirebase();
+        DatabaseReference pedidoRef = firebaseRef.child("pedidos").child(getIdEmpresa()).child(getIdPedido());
+
+        pedidoRef.setValue(this);
+
+    }
+
+    public void remover(){
+
+        DatabaseReference firebaseRef = ConfigFirebase.getFirebase();
+        DatabaseReference pedidoRef = firebaseRef.child("usuarioPedidos").child(getIdEmpresa()).child(getIdUsuario());
+        pedidoRef.removeValue();
 
     }
 

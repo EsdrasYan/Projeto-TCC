@@ -11,10 +11,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,7 +24,6 @@ import java.io.ByteArrayOutputStream;
 
 import projeto.idrink.com.br.R;
 import projeto.idrink.com.br.helper.UsuarioFirebase;
-import projeto.idrink.com.br.model.Empresa;
 import projeto.idrink.com.br.model.Produto;
 
 public class NovoProdutoEmpresaActivity extends AppCompatActivity {
