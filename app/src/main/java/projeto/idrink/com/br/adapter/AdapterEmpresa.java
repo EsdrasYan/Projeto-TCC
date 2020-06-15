@@ -35,9 +35,9 @@ public class AdapterEmpresa extends RecyclerView.Adapter<AdapterEmpresa.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         Empresa empresa = empresas.get(i);
         holder.nomeEmpresa.setText(empresa.getNomeEmpresa());
-        holder.cpf_cnpj.setText(empresa.getCpfCnpj() + " - ");
-        holder.tempo.setText(empresa.getTempoEstimado() + " Min");
-        holder.entrega.setText("R$ " + empresa.getTaxaEntrega().toString());
+        holder.cpf_cnpj.setText(empresa.getCpfCnpj() + " -");
+        holder.tempo.setText(empresa.getTempoEstimado());
+        holder.entrega.setText("R$" + empresa.getTaxaEntrega().toString());
 
         //Carregar imagem
         String urlImagem = empresa.getImgUrl();

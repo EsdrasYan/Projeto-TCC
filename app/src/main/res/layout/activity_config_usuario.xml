@@ -28,10 +28,10 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Nome do Usuário"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
-        <EditText
+        <com.santalu.maskedittext.MaskEditText
             android:id="@+id/editCep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +40,19 @@
             android:ems="10"
             android:hint="CEP"
             android:inputType="text"
-            android:padding="16dp" />
+            android:padding="16dp"
+            app:met_mask="#####-###"
+            />
+<!--        <EditText
+            android:id="@+id/editCep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2dp"
+            android:background="@drawable/bg_edit_text"
+            android:ems="10"
+            android:hint="CEP"
+            android:inputType="text"
+            android:padding="16dp" />-->
 
         <EditText
             android:id="@+id/editEndereco"
@@ -50,7 +62,7 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Endereço"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
         <EditText
@@ -61,7 +73,7 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Complemento"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
         <EditText
@@ -72,7 +84,7 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Cidade"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
         <EditText
@@ -83,7 +95,7 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Bairro"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
         <Button

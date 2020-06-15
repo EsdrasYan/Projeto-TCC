@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,8 +55,9 @@ public class AdapterPedido extends RecyclerView.Adapter<AdapterPedido.MyViewHold
             descricaoItens += numeroItem + ") " + nome + " / (" + qtde + " x R$ " + preco + ") \n";
             numeroItem++;
         }
-        descricaoItens += "Total: R$ " + total;
+        descricaoItens += "Total: R$ " + Math.round(total *100) / 100d;
         holder.itens.setText(descricaoItens);
+
 
         int metodoPagamento = pedido.getTipoPagamento();
         String pagamento = metodoPagamento == 0 ? "Dinheiro" : "Máquina cartão" ;

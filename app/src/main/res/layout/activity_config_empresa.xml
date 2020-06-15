@@ -38,7 +38,7 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Empresa"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
         <EditText
@@ -52,8 +52,19 @@
             android:inputType="text"
             android:padding="16dp" />
 
-        <EditText
+        <com.santalu.maskedittext.MaskEditText
             android:id="@+id/editTempoEstimado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2dp"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Tempo Estimado de Entrega"
+            android:inputType="text"
+            app:met_mask="## Min"
+            android:padding="16dp"
+            />
+<!--        <EditText
+           android:id="@+id/editTempoEstimado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-2dp"
@@ -61,7 +72,7 @@
             android:ems="10"
             android:hint="Tempo Estimado de Entrega"
             android:inputType="text"
-            android:padding="16dp" />
+            android:padding="16dp" />-->
 
         <EditText
             android:id="@+id/editTaxaEntrega"

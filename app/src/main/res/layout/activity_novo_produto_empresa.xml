@@ -39,8 +39,9 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Produto"
-            android:inputType="text"
-            android:padding="16dp" />
+            android:inputType="textCapSentences"
+            android:padding="16dp"
+            android:singleLine="false" />
 
         <EditText
             android:id="@+id/editDescricao"
@@ -50,7 +51,7 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Descrição"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
         <EditText
@@ -61,7 +62,7 @@
             android:background="@drawable/bg_edit_text"
             android:ems="10"
             android:hint="Categoria"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
         <EditText

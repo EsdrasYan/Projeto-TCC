@@ -43,14 +43,16 @@
                     android:id="@+id/cpfCnpj"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CPF/CNPJ" />
+                    android:text="CPF/CNPJ"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/textTempoEmpresa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
-                    android:text="- 25-30 min" />
+                    android:text="- 25-30 min"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/textEntregaEmpresa"
@@ -58,7 +60,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:layout_weight="1"
-                    android:text="- R$ 10" />
+                    android:text="- R$ 10"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
