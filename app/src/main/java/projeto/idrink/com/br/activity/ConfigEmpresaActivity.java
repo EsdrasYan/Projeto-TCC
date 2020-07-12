@@ -121,6 +121,7 @@ public class ConfigEmpresaActivity extends AppCompatActivity {
                         empresa.setImgUrl(urlImg);
                         empresa.salvar();
                         finish();
+                        startActivity(new Intent(getApplicationContext(), EmpresaActivity.class));
                     }else{
                         exibirMensagem("Digite a taxa de entrega!");
                     }

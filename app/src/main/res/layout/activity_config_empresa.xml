@@ -41,16 +41,27 @@
             android:inputType="text|textCapSentences"
             android:padding="16dp" />
 
-        <EditText
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/editCpfCnpj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2dp"
+            android:background="@drawable/bg_edit_text"
+            android:hint="CNPJ"
+            android:inputType="number"
+            android:padding="16dp"
+            app:met_mask="##.###.###/####.##" />
+
+<!--        <EditText
             android:id="@+id/editCpfCnpj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-2dp"
             android:background="@drawable/bg_edit_text"
             android:ems="10"
-            android:hint="CPF/CNPJ"
+            android:hint="CNPJ"
             android:inputType="text"
-            android:padding="16dp" />
+            android:padding="16dp" />-->
 
         <com.santalu.maskedittext.MaskEditText
             android:id="@+id/editTempoEstimado"
@@ -60,7 +71,7 @@
             android:background="@drawable/bg_edit_text"
             android:hint="Tempo Estimado de Entrega"
             android:inputType="text"
-            app:met_mask="## Min"
+            app:met_mask="##-min"
             android:padding="16dp"
             />
 <!--        <EditText

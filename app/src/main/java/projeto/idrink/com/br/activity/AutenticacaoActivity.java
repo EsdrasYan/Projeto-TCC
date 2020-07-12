@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import projeto.idrink.com.br.R;
 import projeto.idrink.com.br.helper.ConfigFirebase;
 import projeto.idrink.com.br.helper.UsuarioFirebase;
+import projeto.idrink.com.br.model.Empresa;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -76,6 +77,10 @@ public class AutenticacaoActivity extends AppCompatActivity {
                                         Toast.makeText(AutenticacaoActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
                                        String tipoUsuario = getTipoUsuario();
                                        UsuarioFirebase.atualizarTipoUsuario(tipoUsuario);
+                                       Empresa empresa = new Empresa();
+                                       Integer img = R.drawable.perfil;
+                                       empresa.setImgUrl(img.toString());
+
                                         abrirTelaHome(tipoUsuario);
                                     }else{
                                         String erroExcecao = "";
@@ -135,7 +140,7 @@ public class AutenticacaoActivity extends AppCompatActivity {
     }
     private void abrirTelaHome(String tipoUsuario){
        if(tipoUsuario.equals("E")){ //empresa
-           startActivity(new Intent(getApplicationContext(), EmpresaActivity.class));
+           startActivity(new Intent(getApplicationContext(), ConfigEmpresaActivity.class));
        }else{ //Usuário
            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
        }
