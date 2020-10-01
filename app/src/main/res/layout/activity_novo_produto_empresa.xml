@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#D8C624"
     tools:context=".activity.NovoProdutoEmpresaActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="85dp"
         android:layout_weight="1"
-        android:background="?attr/colorPrimary"
+        android:background="#D8C624"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
@@ -29,7 +30,7 @@
             android:layout_height="120dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/perfil"
+            android:src="@drawable/carrinho"
             app:civ_border_color="#FFFFFF" />
 
         <EditText
@@ -55,17 +56,6 @@
             android:padding="16dp" />
 
         <EditText
-            android:id="@+id/editCategoria"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-2dp"
-            android:background="@drawable/bg_edit_text"
-            android:ems="10"
-            android:hint="Categoria"
-            android:inputType="text|textCapSentences"
-            android:padding="16dp" />
-
-        <EditText
             android:id="@+id/editQtdEstoque"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,14 +77,57 @@
             android:inputType="numberDecimal"
             android:padding="16dp" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Categoria:"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupOpcao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioButtonCerveja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cerveja"
+                android:textColor="@color/cardview_light_background" />
+
+            <RadioButton
+                android:id="@+id/radioButtonCachaca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cachaça"
+                android:textColor="@color/cardview_light_background" />
+
+            <RadioButton
+                android:id="@+id/radioButtonVinho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vinho"
+                android:textColor="@color/cardview_light_background" />
+
+            <RadioButton
+                android:id="@+id/radioButtonVodka"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vodka"
+                android:textColor="@color/cardview_light_background" />
+        </RadioGroup>
+
         <Button
             android:id="@+id/btnCadastrarProduto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#D8C624"
+            android:background="#FFFFFF"
             android:onClick="validarDadosProduto"
             android:padding="16dp"
             android:text="Cadastrar Produto"
+            android:textColor="#D8C624"
             android:theme="@style/btnPadrao" />
 
     </LinearLayout>

@@ -11,7 +11,7 @@ public class Produto {
     private String nomeProduto;
     private String descricao;
     private Double preco;
-    private String Categoria;
+    private String categoria;
     private String produtoImg;
     private String quantidade;
 
@@ -76,13 +76,9 @@ public class Produto {
         this.preco = preco;
     }
 
-    public String getCategoria() {
-        return Categoria;
-    }
+    public String getCategoria() { return categoria; }
 
-    public void setCategoria(String categoria) {
-        Categoria = categoria;
-    }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
 
     public String getProdutoImg() {
         return produtoImg;

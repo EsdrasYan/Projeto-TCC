@@ -66,7 +66,7 @@ public class EmpresaActivity extends AppCompatActivity {
 
         recuperarProdutos();
 
-        //Evento de CLique
+        //Evento de Clique
         recyclerProdutos.addOnItemTouchListener(new RecyclerItemClickListener(
                 this,
                 recyclerProdutos,

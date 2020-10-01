@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,8 +18,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.braintreepayments.cardform.view.CardForm;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -124,8 +128,7 @@ public class CardapioActivity extends AppCompatActivity {
 
     private void confirmarQtd(final int position){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Quantidade");
-        builder.setMessage("Digite a quantidade");
+        builder.setTitle("Digite a quantidade");
 
         final EditText editQtd = new EditText(this);
         editQtd.setText("1");
@@ -136,30 +139,43 @@ public class CardapioActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String qtd = editQtd.getText().toString();
+                int qtdEstoque;
+                int qtdAux = Integer.parseInt(qtd);
+                int qtdFinal = 0;
 
                 Produto produtoSelecionado = produtos.get(position);
                 ItemPedido itemPedido = new ItemPedido();
-                itemPedido.setIdProduto(produtoSelecionado.getIdProduto());
-                itemPedido.setNomeProduto(produtoSelecionado.getNomeProduto());
-                itemPedido.setPreco(produtoSelecionado.getPreco());
-                itemPedido.setQuantidade(Integer.parseInt(qtd));
 
-                itemsCarrinho.add(itemPedido);
+                qtdEstoque = Integer.parseInt(produtoSelecionado.getQuantidade());
 
-                if(pedidoRecuperado == null){
-                    pedidoRecuperado = new Pedido(idUsuarioLogado, idEmpresa);
+                if(qtdAux > qtdEstoque){
+                    Toast.makeText(CardapioActivity.this, "Quantidade indisponível!", Toast.LENGTH_SHORT).show();
+                }else{
+                    itemPedido.setIdProduto(produtoSelecionado.getIdProduto());
+                    itemPedido.setNomeProduto(produtoSelecionado.getNomeProduto());
+                    itemPedido.setPreco(produtoSelecionado.getPreco());
+                    itemPedido.setQuantidade(Integer.parseInt(qtd));
+                    itemsCarrinho.add(itemPedido);
+
+                    qtdFinal = qtdEstoque - qtdAux;
+
+                    produtoSelecionado.setQuantidade(String.valueOf(qtdFinal));
+
+                    if(pedidoRecuperado == null){
+                        pedidoRecuperado = new Pedido(idUsuarioLogado, idEmpresa);
+                    }
+
+                    pedidoRecuperado.setNome(usuario.getNomeUsuario());
+                    pedidoRecuperado.setCep(usuario.getCep());
+                    pedidoRecuperado.setEndereco(usuario.getEndereco());
+                    pedidoRecuperado.setComplemento(usuario.getComplemento());
+                    pedidoRecuperado.setCidade(usuario.getCidade());
+                    pedidoRecuperado.setBairro(usuario.getBairro());
+
+                    pedidoRecuperado.setItems(itemsCarrinho);
+                    pedidoRecuperado.salvar();
+                    produtoSelecionado.salvar();
                 }
-
-                pedidoRecuperado.setNome(usuario.getNomeUsuario());
-                pedidoRecuperado.setCep(usuario.getCep());
-                pedidoRecuperado.setEndereco(usuario.getEndereco());
-                pedidoRecuperado.setComplemento(usuario.getComplemento());
-                pedidoRecuperado.setCidade(usuario.getCidade());
-                pedidoRecuperado.setBairro(usuario.getBairro());
-
-                pedidoRecuperado.setItems(itemsCarrinho);
-                pedidoRecuperado.salvar();
-
             }
         });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -300,7 +316,7 @@ public class CardapioActivity extends AppCompatActivity {
         });
 
         final EditText editObs = new EditText(this);
-        editObs.setHint("Observação:");
+        editObs.setHint("Observação");
         builder.setView(editObs);
 
         builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
@@ -308,12 +324,26 @@ public class CardapioActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 String observacao = editObs.getText().toString();
-                pedidoRecuperado.setTipoPagamento(tipoPagamento);
-                pedidoRecuperado.setObs(observacao);
-                pedidoRecuperado.setStatus("confirmado");
-                pedidoRecuperado.confirmar();
-                pedidoRecuperado.remover();
-                pedidoRecuperado = null;
+
+                if(tipoPagamento == 0){
+                    pedidoRecuperado.setTipoPagamento(tipoPagamento);
+                    pedidoRecuperado.setObs(observacao);
+                    pedidoRecuperado.setStatus("confirmado");
+                    pedidoRecuperado.confirmar();
+                    pedidoRecuperado.remover();
+                    pedidoRecuperado = null;
+                }else if(tipoPagamento == 1){
+                    pedidoRecuperado.setTipoPagamento(tipoPagamento);
+                    pedidoRecuperado.setObs(observacao);
+                    pedidoRecuperado.setStatus("confirmado");
+                    pedidoRecuperado.confirmar();
+                    pedidoRecuperado.remover();
+                    pedidoRecuperado = null;
+
+                    Intent i = new Intent(CardapioActivity.this, CartaoPagamento.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

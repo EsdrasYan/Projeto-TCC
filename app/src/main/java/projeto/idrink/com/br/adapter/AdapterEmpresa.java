@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import projeto.idrink.com.br.R;
+import projeto.idrink.com.br.activity.AutenticacaoActivity;
 import projeto.idrink.com.br.model.Empresa;
 
 public class AdapterEmpresa extends RecyclerView.Adapter<AdapterEmpresa.MyViewHolder> {
@@ -34,10 +36,11 @@ public class AdapterEmpresa extends RecyclerView.Adapter<AdapterEmpresa.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         Empresa empresa = empresas.get(i);
+
         holder.nomeEmpresa.setText(empresa.getNomeEmpresa());
         holder.cpf_cnpj.setText(empresa.getCpfCnpj() + " -");
         holder.tempo.setText(empresa.getTempoEstimado());
-        holder.entrega.setText("R$" + empresa.getTaxaEntrega().toString());
+        holder.entrega.setText("R$ " + empresa.getTaxaEntrega().toString());
 
         //Carregar imagem
         String urlImagem = empresa.getImgUrl();

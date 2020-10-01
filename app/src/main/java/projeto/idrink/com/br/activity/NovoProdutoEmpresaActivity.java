@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,10 +29,12 @@ import projeto.idrink.com.br.model.Produto;
 
 public class NovoProdutoEmpresaActivity extends AppCompatActivity {
 
-    private EditText editNomeProduto, editDescricaoProduto, editValor, editCategoria, editQtdEstoque;
+    private EditText editNomeProduto, editDescricaoProduto, editValor, editQtdEstoque;
+    private RadioButton cerveja, cachaca, vinho, vodka;
     private ImageView imgProduto;
     private String idUsuarioLogado;
     private String urlImgProduto = "";
+    private String teste;
     private static final int SELECAO_GALERIA = 200;
 
     private StorageReference storageReference;
@@ -63,12 +66,27 @@ public class NovoProdutoEmpresaActivity extends AppCompatActivity {
         });
     }
 
-    public void validarDadosProduto(View view){
+    public void radiobutton(){
 
+        if(cerveja.isChecked()){
+            teste = "Cerveja";
+        }else if(cachaca.isChecked()){
+            teste = "Cachaça";
+        }else if( vinho.isChecked()){
+            teste = "Vinho";
+        }else if(vodka.isChecked()){
+            teste = "Vodka";
+        }
+
+
+    }
+
+    public void validarDadosProduto(View view){
+        radiobutton();
         String nomeProduto = editNomeProduto.getText().toString();
         String descricao = editDescricaoProduto.getText().toString();
         String valor = editValor.getText().toString();
-        String categoria = editCategoria.getText().toString();
+        String categoria = teste;
         String qtd = editQtdEstoque.getText().toString();
 
         if(!nomeProduto.isEmpty()){
@@ -80,7 +98,7 @@ public class NovoProdutoEmpresaActivity extends AppCompatActivity {
                             produto.setIdUsuario(idUsuarioLogado);
                             produto.setNomeProduto(nomeProduto);
                             produto.setDescricao(descricao);
-                            produto.setCategoria(categoria);
+                            produto.setCategoria(teste);
                             produto.setQuantidade(qtd);
                             produto.setPreco(Double.parseDouble(valor));
                             produto.salvar();
@@ -158,8 +176,11 @@ public class NovoProdutoEmpresaActivity extends AppCompatActivity {
         editNomeProduto = findViewById(R.id.editNomeProduto);
         editDescricaoProduto = findViewById(R.id.editDescricao);
         editValor = findViewById(R.id.editPreco);
-        editCategoria = findViewById(R.id.editCategoria);
         imgProduto = findViewById(R.id.imgProduto);
         editQtdEstoque = findViewById(R.id.editQtdEstoque);
+        cerveja = findViewById(R.id.radioButtonCerveja);
+        cachaca = findViewById(R.id.radioButtonCachaca);
+        vinho = findViewById(R.id.radioButtonVinho);
+        vodka = findViewById(R.id.radioButtonVodka);
     }
 }

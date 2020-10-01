@@ -138,9 +138,10 @@ public class AutenticacaoActivity extends AppCompatActivity {
     private String getTipoUsuario(){
        return tipoUsuario.isChecked() ? "E" : "U";
     }
+
     private void abrirTelaHome(String tipoUsuario){
        if(tipoUsuario.equals("E")){ //empresa
-           startActivity(new Intent(getApplicationContext(), ConfigEmpresaActivity.class));
+           startActivity(new Intent(getApplicationContext(), EmpresaActivity.class));
        }else{ //Usuário
            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
        }
